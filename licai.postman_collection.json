@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "429cd12e-bfaf-449b-9720-824d67a5ad4a",
+		"name": "登录",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "登录",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(data.status_code);\r",
+									"});\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(data.msg);\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.status).to.eql(data.status);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=C1F531BF7B737D0AAE9D41739D8AAB2F",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "{{keywords}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "verifycode",
+									"value": "8888",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone_code",
+									"value": "666666",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "dy_server",
+									"value": "on",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{case}}/member/public/login",
+							"host": [
+								"{{case}}"
+							],
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
